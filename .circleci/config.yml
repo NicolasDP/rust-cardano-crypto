@@ -18,7 +18,7 @@ jobs:
           paths:
             - Cargo.lock
       - save_cache:
-          key: cargo-v1-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
+          key: cargo-v2-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
           paths:
             - /usr/local/cargo/registry
             - /usr/local/cargo/git
@@ -33,7 +33,7 @@ jobs:
           at: "."
       - restore_cache:
           keys:
-            - cargo-v1-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
+            - cargo-v2-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
       - run:
           name: Print version information
           command: rustc --version; cargo --version
@@ -65,7 +65,7 @@ jobs:
           at: "."
       - restore_cache:
           keys:
-            - cargo-v1-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
+            - cargo-v2-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
       - run:
           name: Print version information
           command: rustc --version; cargo --version
@@ -84,7 +84,7 @@ jobs:
           at: "."
       - restore_cache:
           keys:
-            - cargo-v1-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
+            - cargo-v2-{{ checksum "Cargo.toml" }}-{{ checksum "Cargo.lock" }}
       - run:
           name: Print version information
           command: rustc --version; cargo --version
